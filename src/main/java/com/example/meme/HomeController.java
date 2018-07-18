@@ -28,8 +28,9 @@ public class HomeController {
     @RequestMapping("/")
     public String listMemes(Model model){
         model.addAttribute("memes", memeRepository.findAll());
-        return "list";
+        return "index";
     }
+
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String showRegistrationPage(Model model)
     {
@@ -51,6 +52,13 @@ public class HomeController {
             model.addAttribute("message", "User Account Successfully Created");
         }
         return "index";
+    }
+
+
+    @RequestMapping("/login")
+    public String login()
+    {
+        return "login";
     }
 
 }
